@@ -1,0 +1,60 @@
+[
+    {
+        "name": "ABC",
+        "age": 21,
+        "empId": 1021367,
+        "skills": [
+            "JS",
+            "Node",
+            "MongoDB"
+        ],
+        "dept": {
+            "unit": "ETA",
+            "role": "Trainee"
+        }
+    },
+    {
+        "name": "DEF",
+        "age": 23,
+        "empId": 1021363,
+        "skills": [
+            "JS",
+            "Node",
+            "MongoDB",
+            "Angular",
+            "BS"
+        ],
+        "dept": {
+            "unit": "ETA",
+            "role": "SE"
+        }
+    },
+    {
+        "name": "GHI",
+        "age": 25,
+        "empId": 1021368,
+        "skills": [
+            "JS",
+            "Angular",
+            "BS"
+        ],
+        "dept": {
+            "unit": "ADM",
+            "role": "SSE"
+        }
+    },
+    {
+        "name": "JKL",
+        "age": 29,
+        "empId": 1021368,
+        "skills": [
+            "JS",
+            "React",
+            "BS"
+        ],
+        "dept": {
+            "unit": "ADM",
+            "role": "Lead"
+        }
+    }
+]

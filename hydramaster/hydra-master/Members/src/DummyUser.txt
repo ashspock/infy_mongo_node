@@ -1,0 +1,7 @@
+"name":"jack",
+"contactNo":7540863544,
+"age":15,
+"membershipType":"Quarterly", 
+"timmingShift":"Evening",
+"sportsCategory":"Archery"
+}
