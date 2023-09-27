@@ -1,0 +1,57 @@
+
+db.user_profiles.find()
+
+db.user_profiles.insertMany(
+    [
+        {"UserID" : "amy01", "Name" : "Amy James", "Gender" : "Female", "Location" : "India", "Age" : 19, "University" : "Delhi University"},
+        {"UserID" : "jimmy999", "Name" : "Jim Watson",  "From" : "Canada", "Location" : "Mexico", "Office" : "Google"},
+        {"UserID" : "rachel_11", "Name" : "Rachel Greene", "Location" : "New York", "PhoneNo" : 123456789, "University" : "Vassar University", "Graduated" : 2014}
+    ]
+)
+
+db.user_profiles.find({}, {_id:0}).pretty()  // display all documents without their id's
+
+
+db.user_profiles.find({}, {_id:0, Name: 1}).pretty()  // display all documents' name field without their id's
+// { "Name" : "Amy James" }
+// { "Name" : "Jim Watson" }
+// { "Name" : "Rachel Greene" }
+
+
+  db.user_profiles.find({
+      $or  : [
+          {Location: "New York"},
+          {Graduated: [{$gte : 2013},
+                       {$lte : 2015}]}
+      ]
+  },
+  { "_id":0, "UserID": 1, "Name": 1}).pretty()
+
+// **
+db.user_profiles.find( {$and : [{ Graduated: {$gte : 2013, $lte : 2015}},{Location : "New York"}]},{"_id":0,"UserID": 1, "Name": 1} )
+
+// ----------------------------------Update Document------------------------------------------------------------------------
+
+db.user_profiles.updateMany({UserID : "amy01"},
+{
+    $set :{Siblings  : ["Luke James", "Anna James", "Sharon James"],
+            University : "Anna University",
+            Age : 21} 
+})
+
+db.user_profiles.updateMany({UserID : "jimmy999"},
+{
+    $set :{
+        University : "University Of Colorado",
+        Age :20,
+        "Favorite Football Team" : "Machester United F.C"
+    } 
+})
+
+db.user_profiles.deleteMany({$or:
+[
+    {Location: "Mexico"},
+    {age : {$gt : 40}}
+]})
+
+db.user_profiles.find().pretty()

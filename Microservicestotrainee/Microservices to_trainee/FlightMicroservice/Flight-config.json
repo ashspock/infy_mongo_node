@@ -1,0 +1,12 @@
+{
+"hydra":{
+    "serviceName":"flight",
+    "serviceIP":"",
+    "servicePort":0,
+    "serviceType":"",
+    "serviceDescription":"This is the service of flight",
+    "redis":{
+        "url":"redis://127.0.0.1:6379/15"
+    }
+}
+}

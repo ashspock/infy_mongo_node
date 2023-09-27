@@ -1,0 +1,56 @@
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>npm i
+
++ express@4.17.1
+added 50 packages from 37 contributors and audited 50 packages in 6.441s
+found 0 vulnerabilities
+
+
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node app.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node app.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node app.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node demo-http-verb.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node demo-http-verb.js
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node demo-http-verb.js     
+Server is running                                                                              
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node demo-url.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>node demo-url.js
+Server is running
+^C
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>npm install -g nodemon     
+C:\Users\Sachin Chauhan\AppData\Roaming\npm\nodemon -> C:\Users\Sachin Chauhan\AppData\Roami   ing\npm\node_modules\nodemon\bin\nodemon.js                                                 ng\n
+
+> nodemon@2.0.7 postinstall C:\Users\Sachin Chauhan\AppData\Roaming\npm\node_modules\nodemonn                                                                                               
+> node bin/postinstall || exit 0
+
+Love nodemon? You can now support the project via the open collective:
+ > https://opencollective.com/nodemon/donate
+
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.3.1 (node_modules\nodemon\node_modules\chokidar\node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ nodemon@2.0.7
+added 119 packages from 53 contributors in 22.47s
+
+E:\Workspace\Node_Express\Day2_NodeJS\CreatingServerUsingExpress>nodemon .\demo-url.js
+[nodemon] 2.0.7
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,json
+[nodemon] starting `node .\demo-url.js`
+Server is running
+[nodemon] restarting due to changes...
+[nodemon] starting `node .\demo-url.js`
+Server is running
+^CTerminate batch job (Y/N)? y

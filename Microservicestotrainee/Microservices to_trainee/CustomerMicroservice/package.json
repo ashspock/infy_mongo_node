@@ -1,0 +1,19 @@
+{
+  "name": "customer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm i && cd src && nodemon app",
+    "run": "cd src && nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "hydra-express": "^1.7.1",
+    "mongoose": "^5.5.9"
+  }
+}

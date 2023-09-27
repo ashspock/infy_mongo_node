@@ -1,0 +1,114 @@
+
+db.product.insertMany(
+    [
+        {product:"A", color:["Red","White"], category:{main:"Electronics", sub:{name:"Mobile"}}, price:6000},
+        {product:"B", color:["Black","Grey"], category:{main:"Electronics",sub:{name:"Mobile"}}, price:10000},
+        {product:"C", color:["Silver","Yellow","Red"], category:{main:"Electronics", sub:{name:"Laptop"}}, price:60000},
+        {product:"D", color:["Red","Grey"], category:{main:"Electronics", sub:{name:"Laptop"}}, price:65000},
+        {product:"E", color:["Pink","White"], category:{main:"Electronics", sub:{name:"Laptop"}}, price:76000}
+    ]
+)
+
+
+db.product.find().pretty()
+
+db.product.find(
+{
+    "category.sub.name": "Laptop"
+}).pretty()
+
+
+db.product.find(
+   {
+    "product" : "A"  // error prone 
+   }    
+).pretty()
+
+db.product.find(
+    {
+        color : {$in : [    //fetches all documents where color red *or yellow *or both present
+            "Red",
+            "Yellow"
+        ]}
+    }
+).pretty()
+
+
+db.product.find(
+    {
+        color : {$all : [    //fetches all documents where color red and yellow *both present
+            "Red",
+            "Yellow"
+        ]}
+    }
+).pretty()
+
+db.product.deleteMany({})
+
+db.product.find().pretty()
+
+//  or operation
+db.product.find(
+    {
+        $or : [
+            {color : "red"},
+            {price : { $gte : 60000}}
+        ]
+    },{
+        _id : 0,
+        product: 1,
+        color: 1,
+        price: 1
+    }
+)
+
+// and operation
+db.product.find(
+    {
+        $and : [
+            {color : ["Red", "Grey"]},
+            {price : { $gte : 60000}}
+        ]
+    },{
+        _id : 0,
+        product: 1,
+        color: 1,
+        price: 1
+    }
+)
+
+//  and-or operation
+db.product.find(
+    {
+        $and : [
+            {color : ["Red", "Grey"]},
+            {price : {$lte :65000}}
+        ]
+    },{
+        _id : 0,
+        product: 1,
+        color: 1,
+        price: 1
+    }
+)
+
+db.product.insertMany(
+    [
+        {product:"F", color:["Black","White","Azure"], category:{main:"Electronics", sub:{name:"Mobile"}}, price:176000},
+        {product:"G", color:["Black","Green","Azure"], category:{main:"Electronics", sub:{name:"Laptop"}}, price:79000},
+        {product:"H", color:["Black","Azure"], category:{main:"Electronics", sub:{name:"Watch"}}, price:256000}
+    ]
+)
+
+db.product.find({},{
+    _id : 0
+}).pretty()
+
+
+// 1. $eq
+db.product.find(
+    {
+        color : {$eq: "Black"}
+    }
+)
+//2. $

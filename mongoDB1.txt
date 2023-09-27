@@ -1,0 +1,210 @@
+
+C:\Users\Sachin Chauhan>mongo
+MongoDB shell version v4.4.4
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("715e0da0-1236-4a29-bf2f-4bee2cbfa016") }
+MongoDB server version: 4.4.4
+---
+The server generated these startup warnings when booting:
+        2021-02-17T10:36:21.113+05:30: Access control is not enabled for the database. Read and write access to data and configuration is unrestricted
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs
+admin     0.000GB
+classFeb  0.000GB
+config    0.000GB
+local     0.000GB
+> db.createCollection("trainees")
+{ "ok" : 1 }
+> use local
+switched to db local
+> show collections
+startup_log
+> use classFeb
+switched to db classFeb
+> show collections
+trainees
+> db.mern.insert({"name":"Sachin","age":"23"})
+WriteResult({ "nInserted" : 1 })
+> show collections
+mern
+trainees
+> db.trainees.insert({"name":"Sachin","age":"23"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.insert({"name":"Vegeta"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+> db.trainees.insert({"name":"Sachin","age":"23"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+> db.trainees.insert({"name":"Sachin","gender":"male"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" 
+>  db.trainees.insert({"_id":21,"name":"Sachin","gender":"male"})
+WriteResult({ "nInserted" : 1 })}
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : ObjectId("602cba0f8f18bd0c4b6010de"), "name" : "Sachin", "age" : "23" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+> db.trainees.insert({"_id":21,"name":"Pay","gender":"female"})
+WriteResult({
+        "nInserted" : 0,
+        "writeError" : {
+                "code" : 11000,
+                "errmsg" : "E11000 duplicate key error collection: classFeb.trainees index: _id_ dup key: { _id: 21.0 }"
+        }
+})
+> db.trainees.insert({"_id":null,"name":"Pay","gender":"female"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : ObjectId("602cba0f8f18bd0c4b6010de"), "name" : "Sachin", "age" : "23" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+> db.trainees.insert({"name":"Beerus"},{"name":"Whis"})
+WriteResult({ "nInserted" : 1 })
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : ObjectId("602cba0f8f18bd0c4b6010de"), "name" : "Sachin", "age" : "23" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+{ "_id" : ObjectId("602cbc298f18bd0c4b6010df"), "name" : "Beerus" }
+> db.trainees.insert([{"name":"Jiren"},{"name":"Whis"}])
+BulkWriteResult({
+        "writeErrors" : [ ],
+        "writeConcernErrors" : [ ],
+        "nInserted" : 2,
+        "nUpserted" : 0,
+        "nMatched" : 0,
+        "nModified" : 0,
+        "nRemoved" : 0,
+        "upserted" : [ ]
+})
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : ObjectId("602cba0f8f18bd0c4b6010de"), "name" : "Sachin", "age" : "23" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+{ "_id" : ObjectId("602cbc298f18bd0c4b6010df"), "name" : "Beerus" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e0"), "name" : "Jiren" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e1"), "name" : "Whis" }
+
+> db.trainees.find()
+{ "_id" : ObjectId("602cb6be8f18bd0c4b6010da"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{ "_id" : ObjectId("602cb9588f18bd0c4b6010dc"), "name" : "Sachin", "age" : "23" }
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : ObjectId("602cba0f8f18bd0c4b6010de"), "name" : "Sachin", "age" : "23" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+{ "_id" : ObjectId("602cbc298f18bd0c4b6010df"), "name" : "Beerus" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e0"), "name" : "Jiren" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e1"), "name" : "Whis" }
+
+> db.trainees.find().pretty()
+{
+        "_id" : ObjectId("602cb6be8f18bd0c4b6010da"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+{ "_id" : ObjectId("602cb72a8f18bd0c4b6010db"), "name" : "Vegeta" }
+{
+        "_id" : ObjectId("602cb9588f18bd0c4b6010dc"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+{
+        "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"),
+        "name" : "Sachin",
+        "gender" : "male"
+}
+{
+        "_id" : ObjectId("602cba0f8f18bd0c4b6010de"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+{ "_id" : ObjectId("602cbc298f18bd0c4b6010df"), "name" : "Beerus" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e0"), "name" : "Jiren" }
+{ "_id" : ObjectId("602cbc6e8f18bd0c4b6010e1"), "name" : "Whis" }
+
+> db.trainees.find({age:"23"}).pretty()
+{
+        "_id" : ObjectId("602cb6be8f18bd0c4b6010da"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+{
+        "_id" : ObjectId("602cb9588f18bd0c4b6010dc"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+{
+        "_id" : ObjectId("602cba0f8f18bd0c4b6010de"),
+        "name" : "Sachin",
+        "age" : "23"
+}
+
+> db.trainees.find({age:"23"},{_id:0}).pretty()
+{ "name" : "Sachin", "age" : "23" }
+{ "name" : "Sachin", "age" : "23" }
+{ "name" : "Sachin", "age" : "23" }
+
+> db.trainees.find({age:"23"},{_id:0,name:0}).pretty()
+{ "age" : "23" }
+{ "age" : "23" }
+{ "age" : "23" }
+
+
+> db.trainees.find({$and:[{age:{$gt:18}},{gender:"male"}]})
+>>>>>>no output
+
+> db.trainees.find({gender:"male"})
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+
+> db.trainees.find({$or:[{gender:"female"},{gender:"male"}]})
+{ "_id" : ObjectId("602cb9a08f18bd0c4b6010dd"), "name" : "Sachin", "gender" : "male" }
+{ "_id" : false, "name" : "Sachin", "gender" : "male" }
+{ "_id" : 21, "name" : "Sachin", "gender" : "male" }
+{ "_id" : null, "name" : "Pay", "gender" : "female" }
+
